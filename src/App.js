@@ -1,7 +1,10 @@
 import React, { Component, Fragment } from 'react';
+// eslint-disable-next-line
+import { Toggle } from "Utilities";
+// eslint-disable-next-line
+import { Modal } from "Elements";
 import logo from './logo.svg';
 import './App.css';
-import { Toggle, Portal, Modal } from './Utilities';
 
 class App extends Component {
   render() {

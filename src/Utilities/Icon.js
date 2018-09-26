@@ -8,6 +8,8 @@ import React, { Component } from 'react';
 export default class icon extends Component {
   static defaultProps = {
     color: 'black',
+    height: '24px',
+    width: '24px',
   };
 
   render() {

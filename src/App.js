@@ -9,12 +9,6 @@ import logo from './logo.svg';
 import './App.css';
 import UserProvider from './UserProvider';
 
-const Header = styles => (
-  <Card style={{ ...styles }}>
-    <h1>Show Me</h1>
-  </Card>
-);
-
 class App extends Component {
   render() {
     return (
@@ -32,13 +26,6 @@ class App extends Component {
                   <button type="button" onClick={toggle}>
                     Show/Hide
                   </button>
-                  <Transition
-                    from={{ opacity: 0 }}
-                    enter={{ opacity: 1 }}
-                    leave={{ opacity: 0 }}
-                  >
-                    {on && Header}
-                  </Transition>
                 </Fragment>
               )}
             </Toggle>

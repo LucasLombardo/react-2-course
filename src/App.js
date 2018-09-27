@@ -1,37 +1,19 @@
 import React, { Component, Fragment } from 'react';
-/* eslint react/no-unused-state: 0 react/no-multi-comp:0 */
-/* eslint import/no-unresolved: 0 react/prop-types: 0 */
-// TODO: fix proptypes, fix unresolved path linting
+import { Transition } from 'react-spring';
+/* eslint import/no-unresolved: 0 */
+// TODO: fix unresolved path linting
 import { Toggle } from 'Utilities';
-import { Modal } from 'Elements';
+import { Modal, Card } from 'Elements';
 import User from './User';
 import logo from './logo.svg';
 import './App.css';
-import { UserContext } from './UserContext';
+import UserProvider from './UserProvider';
 
-class UserProvider extends Component {
-  state = {
-    id: 123,
-    name: 'Scott',
-    email: 'Scott@LUT.com',
-  };
-
-  logout = () => {
-    this.setState({
-      id: null,
-      name: '',
-      email: '',
-    });
-  };
-
-  render() {
-    return (
-      <UserContext.Provider value={{ user: this.state, logout: this.logout }}>
-        {this.props.children}
-      </UserContext.Provider>
-    );
-  }
-}
+const Header = styles => (
+  <Card style={{ ...styles }}>
+    <h1>Show Me</h1>
+  </Card>
+);
 
 class App extends Component {
   render() {
@@ -43,6 +25,24 @@ class App extends Component {
             <h1 className="App-title">Welcome to React</h1>
           </header>
           <User />
+          <section>
+            <Toggle>
+              {({ on, toggle }) => (
+                <Fragment>
+                  <button type="button" onClick={toggle}>
+                    Show/Hide
+                  </button>
+                  <Transition
+                    from={{ opacity: 0 }}
+                    enter={{ opacity: 1 }}
+                    leave={{ opacity: 0 }}
+                  >
+                    {on && Header}
+                  </Transition>
+                </Fragment>
+              )}
+            </Toggle>
+          </section>
           <Toggle>
             {({ on, toggle }) => (
               <Fragment>

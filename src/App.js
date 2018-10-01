@@ -8,6 +8,7 @@ import User from './User';
 import logo from './logo.svg';
 import './App.css';
 import UserProvider from './UserProvider';
+import Drag from './Drag';
 
 class App extends Component {
   render() {
@@ -18,18 +19,7 @@ class App extends Component {
             <img src={logo} className="App-logo" alt="logo" />
             <h1 className="App-title">Welcome to React</h1>
           </header>
-          <User />
-          <section>
-            <Toggle>
-              {({ on, toggle }) => (
-                <Fragment>
-                  <button type="button" onClick={toggle}>
-                    Show/Hide
-                  </button>
-                </Fragment>
-              )}
-            </Toggle>
-          </section>
+          <Drag />
           <Toggle>
             {({ on, toggle }) => (
               <Fragment>
